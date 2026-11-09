@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>L’Onglerie — уход за ногтями</title>
+  <meta name="description" content="L’Onglerie — бережная косметика для ногтей: базы, масла, лаки и наборы для домашнего маникюра.">
+  <meta name="theme-color" content="#f5ede4">
+
+  <!-- Видео для скраба: каждый кадр — ключевой, поэтому перемотка в любую сторону мгновенная.
+       Узкие экраны получают облегчённую 720p-версию. -->
+  <link rel="preload" href="hero-720.mp4" as="fetch" crossorigin media="(max-width: 900px)">
+  <link rel="preload" href="hero-1080.mp4" as="fetch" crossorigin media="(min-width: 901px)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__logo">L’Onglerie</div>
+    <div class="loader__bar"><div class="loader__fill" id="loaderFill"></div></div>
+  </div>
+
+  <!-- ===== Шапка ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo">L’Onglerie</a>
+      <nav class="nav" aria-label="Основное меню">
+        <a href="#catalog">Каталог</a>
+        <a href="#ritual">Ритуал</a>
+        <a href="#ingredients">Состав</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <button class="icon-btn" id="cartBtn" aria-label="Открыть корзину">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="Открыть меню">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="icon-btn mobile-menu__close" id="menuClose" aria-label="Закрыть меню">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <a href="#catalog">Каталог</a>
+    <a href="#ritual">Ритуал</a>
+    <a href="#ingredients">Состав</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#faq">Вопросы</a>
+  </div>
+
+  <main id="top">
+    <!-- ===== 1. Hero со скрабом видео ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__stage">
+        <!-- Без звука, без автозапуска: кадр выбирается прокруткой -->
+        <video class="hero__video" id="heroVideo" muted playsinline preload="auto"
+               disablepictureinpicture disableremoteplayback aria-hidden="true"></video>
+        <div class="hero__shade"></div>
+
+        <div class="container hero__content" id="heroContent">
+          <h1 class="hero__title">Гладкие ногти <em>без салона</em></h1>
+          <p class="hero__lead">Сглаживающая база La Base Lissante — французский уход для ногтей. Прокрутите, чтобы увидеть её в деле.</p>
+          <div class="hero__actions">
+            <a href="#catalog" class="btn btn--light">Выбрать средство <span class="btn__arrow">→</span></a>
+            <a href="#ritual" class="btn btn--ghost">Как пользоваться</a>
+          </div>
+        </div>
+
+        <div class="container hero__finale" id="heroFinale">
+          <p>Один слой. <em>Естественный</em> блеск.</p>
+        </div>
+
+        <div class="hero__hint" id="heroHint"><span>Листайте</span><i></i></div>
+        <div class="hero__progress" id="heroProgress"></div>
+      </div>
+    </section>
+
+    <!-- ===== 2. Две перекрещенные ленты ===== -->
+    <div class="ribbons" aria-hidden="true">
+      <div class="marquee marquee--back">
+        <div class="marquee__track marquee__track--reverse">
+          <div class="marquee__group"><span>L’Onglerie</span><span>Гладкость</span><span>Блеск</span><span>Уход</span><span>Ритуал</span><span>Сияние</span></div>
+          <div class="marquee__group"><span>L’Onglerie</span><span>Гладкость</span><span>Блеск</span><span>Уход</span><span>Ритуал</span><span>Сияние</span></div>
+        </div>
+      </div>
+      <div class="marquee marquee--front">
+        <div class="marquee__track">
+          <div class="marquee__group">
+            <span>Веган-формулы</span><span>Без 10 токсичных компонентов</span><span>Сделано вручную</span><span>Бесплатная доставка от 3 000 ₽</span><span>Не тестируется на животных</span>
+          </div>
+          <div class="marquee__group">
+            <span>Веган-формулы</span><span>Без 10 токсичных компонентов</span><span>Сделано вручную</span><span>Бесплатная доставка от 3 000 ₽</span><span>Не тестируется на животных</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 3. Каталог ===== -->
+    <section class="section layered" id="catalog">
+      <!-- Декоративные слои, движутся с разной скоростью -->
+      <div class="layers" aria-hidden="true">
+        <span class="orb orb--peach" data-speed="-.25" style="top:6%;left:-6%"></span>
+        <span class="orb orb--blush orb--sm" data-speed=".35" style="top:40%;right:-4%"></span>
+        <span class="orb orb--sand" data-speed="-.15" style="bottom:4%;left:30%"></span>
+        <span class="drop" data-speed=".5" style="top:18%;right:22%"></span>
+        <span class="drop drop--sm" data-speed="-.4" style="top:70%;left:8%"></span>
+      </div>
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <span class="eyebrow">Каталог</span>
+            <h2 class="h2">Всё для <em>ухоженных</em> рук</h2>
+          </div>
+          <p class="section__lead reveal" style="--d:.1s">Базы, масла и оттенки, которые работают вместе. Соберите свой ритуал или возьмите готовый набор.</p>
+        </div>
+
+        <div class="filters reveal" role="tablist" aria-label="Категории">
+          <button class="chip is-active" data-filter="all">Все</button>
+          <button class="chip" data-filter="nails">Ногти и кутикула</button>
+          <button class="chip" data-filter="hands">Руки</button>
+          <button class="chip" data-filter="feet">Стопы</button>
+          <button class="chip" data-filter="body">Тело</button>
+        </div>
+
+        <div class="grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== 4. Ритуал: шаги с липкой картинкой ===== -->
+    <section class="section ritual sheet" id="ritual">
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <span class="eyebrow">Ритуал</span>
+            <h2 class="h2">Три шага <em>до идеала</em></h2>
+          </div>
+          <p class="section__lead reveal" style="--d:.1s">Меньше пяти минут — и ногти выглядят так, будто вы только что вышли из салона.</p>
+        </div>
+
+        <div class="ritual__grid">
+          <div class="ritual__stack" data-tilt-scope>
+            <div class="plate plate--terracotta" data-depth="-12"></div>
+            <div class="plate plate--blush" data-depth="-24"></div>
+            <div class="ritual__visual reveal reveal--clip" data-depth="8">
+              <img src="img/frame-05.jpg" alt="Кисточка с базой над флаконом" class="is-active" data-step="0">
+              <img src="img/frame-25.jpg" alt="Нанесение базы на ноготь" data-step="1" loading="lazy">
+              <img src="img/frame-85.jpg" alt="Готовый результат — гладкие блестящие ногти" data-step="2" loading="lazy">
+              <span class="ritual__counter" id="ritualCounter">01 / 03</span>
+            </div>
+            <div class="float-chip" data-depth="28" style="top:12%;right:-6%"><b>60 с</b> до высыхания</div>
+            <div class="float-chip float-chip--dark" data-depth="40" style="bottom:16%;left:-8%">✦ Без УФ-лампы</div>
+          </div>
+
+          <div class="steps">
+            <article class="step is-active">
+              <span class="step__num">Шаг 01</span>
+              <h3>Подготовьте пластину</h3>
+              <p>Обезжирьте ногти и сдвиньте кутикулу. Хорошо встряхните флакон — так пигмент и уход распределятся равномерно.</p>
+              <span class="step__time">30 секунд</span>
+            </article>
+            <article class="step">
+              <span class="step__num">Шаг 02</span>
+              <h3>Один тонкий слой</h3>
+              <p>Нанесите разглаживающую базу от центра к краям. Формула сама заполняет неровности и бороздки.</p>
+              <span class="step__time">2 минуты</span>
+            </article>
+            <article class="step">
+              <span class="step__num">Шаг 03</span>
+              <h3>Наслаждайтесь блеском</h3>
+              <p>Через 60 секунд база высохнет до лёгкого розового сияния. Носите отдельно или как основу под цвет.</p>
+              <span class="step__time">До 7 дней стойкости</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. Цифры ===== -->
+    <section class="stats-wrap">
+      <div class="container">
+        <div class="stats">
+          <div class="stat reveal"><div class="stat__num" data-count="94" data-suffix="%">0</div><div class="stat__label">отметили более гладкие ногти после первого нанесения</div></div>
+          <div class="stat reveal" style="--d:.1s"><div class="stat__num" data-count="60" data-suffix=" с">0</div><div class="stat__label">время высыхания одного слоя</div></div>
+          <div class="stat reveal" style="--d:.2s"><div class="stat__num" data-count="10" data-prefix="−">0</div><div class="stat__label">токсичных компонентов исключено из формул</div></div>
+          <div class="stat reveal" style="--d:.3s"><div class="stat__num" data-count="12000" data-suffix="+">0</div><div class="stat__label">клиенток уже выбрали L’Onglerie</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. Состав ===== -->
+    <section class="section" id="ingredients">
+      <div class="container ingredients__grid">
+        <div class="photo-stack">
+          <div class="plate plate--sand" data-speed="-.12"></div>
+          <div class="ingredients__photo reveal reveal--clip">
+            <img src="img/frame-65.jpg" alt="Флакон разглаживающей базы на полотенце" loading="lazy" data-parallax>
+          </div>
+          <div class="photo-bubble reveal" data-speed=".22" style="--d:.2s">
+            <img src="img/frame-85.jpg" alt="" loading="lazy">
+          </div>
+          <div class="float-chip seal" data-speed=".4"><span>100%<br>веган</span></div>
+        </div>
+        <div>
+          <div class="reveal">
+            <span class="eyebrow">Состав</span>
+            <h2 class="h2">Честная формула, <em>видимый</em> результат</h2>
+          </div>
+          <ul class="ing-list">
+            <li class="ing reveal"><span class="ing__dot">🌿</span><div><h4>Экстракт бамбука</h4><p>Природный кремний укрепляет пластину и уменьшает ломкость.</p></div></li>
+            <li class="ing reveal" style="--d:.08s"><span class="ing__dot">💧</span><div><h4>Гиалуроновая кислота</h4><p>Удерживает влагу, поэтому ногти не пересыхают даже под цветом.</p></div></li>
+            <li class="ing reveal" style="--d:.16s"><span class="ing__dot">🌸</span><div><h4>Масло шиповника</h4><p>Питает кутикулу и придаёт ногтям здоровый розовый оттенок.</p></div></li>
+          </ul>
+          <div class="free-from reveal">
+            <span>Без формальдегида</span><span>Без толуола</span><span>Без DBP</span><span>Без камфоры</span><span>Веган</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. Отзывы ===== -->
+    <section class="section reviews sheet" id="reviews">
+      <div class="big-quote" data-speed="-.3" aria-hidden="true">“</div>
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <span class="eyebrow">Отзывы</span>
+            <h2 class="h2">Нас <em>любят</em> за результат</h2>
+          </div>
+          <div class="slider-nav reveal">
+            <button class="round-btn" id="prevReview" aria-label="Предыдущий отзыв">←</button>
+            <button class="round-btn" id="nextReview" aria-label="Следующий отзыв">→</button>
+          </div>
+        </div>
+        <div class="slider" id="reviewSlider">
+          <article class="review reveal">
+            <div class="review__stars">★★★★★</div>
+            <blockquote>«Перестала ходить на укрепление в салон. База реально выравнивает — бороздки почти не видны».</blockquote>
+            <footer><span class="review__avatar">А</span><div>Анна<div class="review__meta">Сглаживающая база</div></div></footer>
+          </article>
+          <article class="review reveal" style="--d:.08s">
+            <div class="review__stars">★★★★★</div>
+            <blockquote>«Сохнет правда за минуту. Ношу без цвета — выглядит как дорогой нюдовый маникюр».</blockquote>
+            <footer><span class="review__avatar">М</span><div>Мария<div class="review__meta">Набор «Ритуал»</div></div></footer>
+          </article>
+          <article class="review reveal" style="--d:.16s">
+            <div class="review__stars">★★★★★</div>
+            <blockquote>«Масло пахнет шиповником и впитывается моментально. Кутикула за неделю стала мягкой».</blockquote>
+            <footer><span class="review__avatar">Е</span><div>Екатерина<div class="review__meta">Масло для кутикулы</div></div></footer>
+          </article>
+          <article class="review">
+            <div class="review__stars">★★★★★</div>
+            <blockquote>«Купила маме и себе. Красивые флаконы, приятно держать в руках и дарить».</blockquote>
+            <footer><span class="review__avatar">О</span><div>Ольга<div class="review__meta">Лак «Песок»</div></div></footer>
+          </article>
+          <article class="review">
+            <div class="review__stars">★★★★☆</div>
+            <blockquote>«Отличная стойкость, держится шесть дней. Хотелось бы ещё больше оттенков!»</blockquote>
+            <footer><span class="review__avatar">Д</span><div>Дарья<div class="review__meta">Лак «Терракота»</div></div></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. Галерея ===== -->
+    <section class="section" style="padding-bottom:clamp(100px,14vw,180px)">
+      <div class="container">
+        <div class="section__head">
+          <div class="reveal">
+            <span class="eyebrow">Сообщество</span>
+            <h2 class="h2">Делитесь <em>результатом</em></h2>
+          </div>
+          <p class="section__lead reveal" style="--d:.1s">Отмечайте L’Onglerie в соцсетях — лучшие фото попадают сюда и получают подарок.</p>
+        </div>
+      </div>
+      <!-- Две ленты фото, едут в разные стороны вместе с прокруткой -->
+      <div class="gallery-rows" id="galleryRows">
+        <div class="gallery-row" data-dir="-1">
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-85.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-25.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-65.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-45.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-05.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-99.jpg" alt="" loading="lazy"></a>
+        </div>
+        <div class="gallery-row" data-dir="1">
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-45.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-99.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-05.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-85.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-25.jpg" alt="" loading="lazy"></a>
+          <a href="#" aria-label="Фото сообщества"><img src="img/frame-65.jpg" alt="" loading="lazy"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 9. FAQ ===== -->
+    <section class="section ritual sheet" id="faq">
+      <div class="container faq__grid">
+        <div class="reveal">
+          <span class="eyebrow">Вопросы</span>
+          <h2 class="h2">Отвечаем <em>честно</em></h2>
+          <p class="section__lead" style="margin-top:20px">Не нашли ответ? Напишите нам — отвечаем в течение часа.</p>
+        </div>
+        <div>
+          <details class="faq-item reveal">
+            <summary>Сколько держится разглаживающая база?<span class="faq-item__icon"></span></summary>
+            <div class="faq-item__body"><p>В среднем 5–7 дней без сколов. Если нанести поверх топ с глянцем, стойкость увеличивается до 10 дней.</p></div>
+          </details>
+          <details class="faq-item reveal" style="--d:.06s">
+            <summary>Подходит ли для тонких и ломких ногтей?<span class="faq-item__icon"></span></summary>
+            <div class="faq-item__body"><p>Да. Экстракт бамбука и гиалуроновая кислота укрепляют пластину, а формула без формальдегида не пересушивает ногти.</p></div>
+          </details>
+          <details class="faq-item reveal" style="--d:.12s">
+            <summary>Как быстро доставляете?<span class="faq-item__icon"></span></summary>
+            <div class="faq-item__body"><p>По Москве и Санкт-Петербургу — 1–2 дня, по России — 2–7 дней. Доставка бесплатная при заказе от 3 000 ₽.</p></div>
+          </details>
+          <details class="faq-item reveal" style="--d:.18s">
+            <summary>Можно ли вернуть товар?<span class="faq-item__icon"></span></summary>
+            <div class="faq-item__body"><p>Неоткрытые средства можно вернуть в течение 14 дней. Если продукт не подошёл после использования — напишите нам, разберёмся индивидуально.</p></div>
+          </details>
+          <details class="faq-item reveal" style="--d:.24s">
+            <summary>Нужна ли УФ-лампа?<span class="faq-item__icon"></span></summary>
+            <div class="faq-item__body"><p>Нет. Все средства L’Onglerie высыхают на воздухе — никаких ламп и опилов при снятии.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 10. Подписка ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="subscribe reveal" data-tilt-scope>
+          <span class="sub-orb sub-orb--1" data-depth="-30" aria-hidden="true"></span>
+          <span class="sub-orb sub-orb--2" data-depth="20" aria-hidden="true"></span>
+          <span class="sub-orb sub-orb--3" data-depth="45" aria-hidden="true"></span>
+          <div class="sub-bottle" data-depth="60" aria-hidden="true">
+            <img class="sub-bottle__img" src="img/products/body-shimmer.webp" alt="" loading="lazy">
+          </div>
+          <div>
+            <span class="eyebrow">Клуб L’Onglerie</span>
+            <h2 class="h2">−15% на <em>первый</em> заказ</h2>
+          </div>
+          <div>
+            <form class="form" id="subscribeForm" novalidate>
+              <input type="email" name="email" placeholder="Ваш e-mail" aria-label="E-mail" required>
+              <button class="btn btn--light" type="submit">Получить скидку</button>
+            </form>
+            <p class="form__note">Раз в две недели: новинки, советы по уходу и закрытые акции. Без спама.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Подвал ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <a href="#top" class="logo">L’Onglerie</a>
+          <p style="color:var(--ink-soft);max-width:32ch;margin-top:14px">Бережная косметика для ногтей, созданная для домашнего ритуала.</p>
+        </div>
+        <div>
+          <h5>Магазин</h5>
+          <ul><li><a href="#catalog">Каталог</a></li><li><a href="#catalog">Наборы</a></li><li><a href="#catalog">Подарочные сертификаты</a></li></ul>
+        </div>
+        <div>
+          <h5>Помощь</h5>
+          <ul><li><a href="#faq">Доставка и оплата</a></li><li><a href="#faq">Возврат</a></li><li><a href="#faq">Вопросы</a></li></ul>
+        </div>
+        <div>
+          <h5>Связь</h5>
+          <ul><li><a href="#">Telegram</a></li><li><a href="#">ВКонтакте</a></li><li><a href="#">hello@example.com</a></li></ul>
+        </div>
+      </div>
+      <div class="footer__big" aria-hidden="true">L’Onglerie</div>
+      <div class="footer__bottom">
+        <span>© 2026 L’Onglerie</span>
+        <span>Политика конфиденциальности</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Корзина ===== -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Корзина" aria-hidden="true">
+    <div class="drawer__head">
+      <h3>Корзина</h3>
+      <button class="icon-btn" id="drawerClose" aria-label="Закрыть корзину">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="drawer__items" id="cartItems"></div>
+    <div class="drawer__foot">
+      <div class="free-ship" id="freeShip"></div>
+      <div class="drawer__row drawer__row--total"><span>Итого</span><span id="cartTotal">0 ₽</span></div>
+      <button class="btn btn--primary" id="checkoutBtn">Оформить заказ</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="main.js?v=4"></script>
+</body>
+</html>
